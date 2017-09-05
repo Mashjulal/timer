@@ -3,24 +3,28 @@ import javafx.event.EventTarget;
 import javafx.event.EventType;
 
 /**
- * Created by Master on 08.03.2017.
+ * Class-holder for events.
+ * Contains two event classes - {@link TimeChangeEvent} and {@link FinishedCountdownEvent};
+ * and theirs EventTypes.
  */
-public class Events {
+class Events {
 
-    public static final EventType<TimeChangeEvent> TIME_CHANGE =
+    // Static EventType constant for TimeChangeEvent
+    static final EventType<TimeChangeEvent> TIME_CHANGE =
             new EventType<>(Event.ANY, "TIME_CHANGE");
 
-    public static final EventType<Event> FINISHED_COUNTDOWN =
+    // Static EventType constant for FinishedCountDownEvent
+    static final EventType<FinishedCountdownEvent> FINISHED_COUNTDOWN =
             new EventType<>(Event.ANY, "FINISHED_COUNTDOWN");
 
-    public static class TimeChangeEvent extends Event {
 
-        public TimeChangeEvent() {
+    /**
+     * Static class for time change events.
+     */
+    static class TimeChangeEvent extends Event {
+
+        TimeChangeEvent() {
             super(TIME_CHANGE);
-        }
-
-        public TimeChangeEvent(Object source, EventTarget target) {
-            super(source, target, TIME_CHANGE);
         }
 
         @Override
@@ -34,14 +38,13 @@ public class Events {
         }
     }
 
-    public static class FinishedCountdownEvent extends Event {
+    /**
+     * Static class of finished countdown events.
+     */
+    static class FinishedCountdownEvent extends Event {
 
-        public FinishedCountdownEvent() {
+        FinishedCountdownEvent() {
             super(FINISHED_COUNTDOWN);
-        }
-
-        public FinishedCountdownEvent(Object source, EventTarget target) {
-            super(source, target, FINISHED_COUNTDOWN);
         }
 
         @Override
