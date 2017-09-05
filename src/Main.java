@@ -7,11 +7,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * Created by master on 06.03.17.
+ * Main application class.
  */
 public class Main extends Application {
+
     private Stage primaryStage;
-    private Parent root;
 
     @Override
     public void start(Stage stage){
@@ -19,10 +19,15 @@ public class Main extends Application {
         startApplication();
     }
 
+    /**
+     * Loads application files and sets its
+     * necessary parameters: title, size policy.
+     */
     private void startApplication(){
         try {
-            root = FXMLLoader.load(getClass().getResource("timer_interface.fxml"));
-
+            // Load app UI from fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("timer_interface.fxml"));
+            // Add styles from css file
             root.getStylesheets().add(getClass().getResource("theme_sheet.css").toExternalForm());
 
             primaryStage.setScene(new Scene(root));
